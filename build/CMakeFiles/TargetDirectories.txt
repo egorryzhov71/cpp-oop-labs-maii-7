@@ -1,0 +1,4 @@
+/workspaces/C++/LABA7/build/CMakeFiles/dungeon_threaded.dir
+/workspaces/C++/LABA7/build/CMakeFiles/dungeon_tests.dir
+/workspaces/C++/LABA7/build/CMakeFiles/edit_cache.dir
+/workspaces/C++/LABA7/build/CMakeFiles/rebuild_cache.dir
