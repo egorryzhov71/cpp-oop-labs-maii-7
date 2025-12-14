@@ -1,12 +1,36 @@
-#include "/workspaces/C++/LABA7/include/Knight.h"
+#include "/workspaces/C++/balagur_project_filled/include/Knight.h"
+#include <iostream>
+#include <memory>
 
-Knight::Knight(const std::string& name_, double x_, double y_) 
-    : NPC(name_, x_, y_) {}
+Knight::Knight(int x, int y, const std::string& name) 
+    : NPC(Type::Knight, x, y, name) {}
 
-std::string Knight::type() const { return "Knight"; }
-int Knight::move_distance() const { return 30; }    
-int Knight::kill_distance() const { return 10; }   
+Knight::Knight(std::istream &is) : NPC(Type::Knight, is) {}
 
-bool Knight::kills(const NPC& other) const {
-    return other.type() == "Orc";
+bool Knight::accept(std::shared_ptr<NPC> attacker) {
+    return attacker->fight(std::static_pointer_cast<Knight>(shared_from_this()));
+}
+
+bool Knight::fight(std::shared_ptr<Knight> other) {
+    fight_notify(other, false);
+    return false;
+}
+
+bool Knight::fight(std::shared_ptr<Orc> other) {
+    fight_notify(other, true);
+    return true;
+}
+
+bool Knight::fight(std::shared_ptr<Bear> other) {
+    fight_notify(other, false);
+    return false;
+}
+
+void Knight::print() {
+    std::cout << "Рыцарь '" << name << "' [" << x << "," << y << "]" << std::endl;
+}
+
+void Knight::save(std::ostream &os) {
+    os << static_cast<int>(Type::Knight) << " ";
+    NPC::save(os);
 }
