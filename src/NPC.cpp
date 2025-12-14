@@ -29,6 +29,15 @@ void NPC::save(std::ostream &os) {
     os << x << " " << y << " " << name;
 }
 
+void NPC::move(int shift_x, int shift_y, int max_x, int max_y){
+    std::lock_guard<std::mutex> lck(mtx);
+
+    if ((x+ shift_x >= 0) && (x + shift_x <= max_x)
+        x += shift_x;
+    if ((y shift_y >= 0) && (x + shift_y <= max_y))
+        y += shift_y)
+}
+
 bool NPC::is_close(const std::shared_ptr<NPC> &other, size_t distance) const {
     if (!other) return false;
     double dx = x - other->x;

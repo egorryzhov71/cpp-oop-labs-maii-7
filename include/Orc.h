@@ -1,15 +1,43 @@
-#ifndef ORC_H
-#define ORC_H
-
+#pragma once
 #include "NPC.h"
+#include <fstream>
+#include <iostream>
+#include <memory>
 
-class Orc : public NPC {
+class IFightObserver {
 public:
-    Orc(const std::string& name_, double x_, double y_);
-    std::string type() const override;
-    int move_distance() const override;    
-    int kill_distance() const override;    
-    bool kills(const NPC& other) const override;
+    virtual ~IFightObserver() = default;
+    virtual void on_fight(const std::shared_ptr<NPC> attacker, 
+                         const std::shared_ptr<NPC> defender, 
+                         bool win) = 0;
 };
 
-#endif 
+class ConsoleObserver : public IFightObserver {
+public:
+    void on_fight(const std::shared_ptr<NPC> attacker, 
+                 const std::shared_ptr<NPC> defender, 
+                 bool win) override {
+        if (win) {
+            std::cout << attacker->get_name() << " убил " << defender->get_name() << std::endl;
+        }
+    }
+};
+
+class FileObserver : public IFightObserver {
+    std::ofstream log_file;
+public:
+    FileObserver() { 
+        log_file.open("log.txt", std::ios::app); 
+    }
+    ~FileObserver() { 
+        if (log_file.is_open()) log_file.close(); 
+    }
+    
+    void on_fight(const std::shared_ptr<NPC> attacker, 
+                 const std::shared_ptr<NPC> defender, 
+                 bool win) override {
+        if (win && log_file.is_open()) {
+            log_file << attacker->get_name() << " убил " << defender->get_name() << std::endl;
+        }
+    }
+};

@@ -1,15 +1,18 @@
-#ifndef BEAR_H
-#define BEAR_H
-
+#pragma once
 #include "NPC.h"
+#include "Knight.h"
+#include "Orc.h"
 
 class Bear : public NPC {
 public:
-    Bear(const std::string& name_, double x_, double y_);
-    std::string type() const override;
-    int move_distance() const override;   
-    int kill_distance() const override; 
-    bool kills(const NPC& other) const override;
+    Bear(int x, int y, const std::string& name);
+    Bear(std::istream &is);
+    
+    bool accept(std::shared_ptr<NPC> attacker) override;
+    bool fight(std::shared_ptr<Knight> other) override;
+    bool fight(std::shared_ptr<Orc> other) override;
+    bool fight(std::shared_ptr<Bear> other) override;
+    
+    void print() override;
+    void save(std::ostream &os) override; 
 };
-
-#endif
