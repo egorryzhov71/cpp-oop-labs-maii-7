@@ -1,4 +1,4 @@
-#include "/workspaces/C++/balagur_project_filled/include/Knight.h"
+#include "/workspaces/c++/cpp-oop-labs-maii-7/include/Knight.h"
 #include <iostream>
 #include <memory>
 
@@ -12,22 +12,35 @@ bool Knight::accept(std::shared_ptr<NPC> attacker) {
 }
 
 bool Knight::fight(std::shared_ptr<Knight> other) {
-    fight_notify(other, false);
-    return false;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->defense_power);
+    fight_notify(other, win);
+    return win;
 }
 
 bool Knight::fight(std::shared_ptr<Orc> other) {
-    fight_notify(other, true);
-    return true;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->get_defense_power());
+    fight_notify(other, win);
+    return win;
 }
 
 bool Knight::fight(std::shared_ptr<Bear> other) {
-    fight_notify(other, false);
-    return false;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->get_defense_power());
+    fight_notify(other, win);
+    return win;
 }
 
 void Knight::print() {
-    std::cout << "Рыцарь '" << name << "' [" << x << "," << y << "]" << std::endl;
+    std::cout << "Рыцарь '" << name << "' [" << x << "," << y << "] "
+              << "АТК:" << attack_power << " ЗЩТ:" << defense_power << std::endl;
 }
 
 void Knight::save(std::ostream &os) {

@@ -1,6 +1,6 @@
-#include "/workspaces/C++/balagur_project_filled/include/Orc.h"
-#include "/workspaces/C++/balagur_project_filled/include/Bear.h"
-#include "/workspaces/C++/balagur_project_filled/include/Knight.h"
+#include "/workspaces/c++/cpp-oop-labs-maii-7/include/Orc.h"
+#include "/workspaces/c++/cpp-oop-labs-maii-7/include/Bear.h"
+#include "/workspaces/c++/cpp-oop-labs-maii-7/include/Knight.h"
 #include <iostream>
 
 Orc::Orc(int x, int y, const std::string& name) 
@@ -13,22 +13,35 @@ bool Orc::accept(std::shared_ptr<NPC> attacker) {
 }
 
 bool Orc::fight(std::shared_ptr<Knight> other) {
-    fight_notify(other, false);
-    return false;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->get_defense_power());
+    fight_notify(other, win);
+    return win;
 }
 
 bool Orc::fight(std::shared_ptr<Orc> other) {
-    fight_notify(other, false);
-    return false;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->get_defense_power());
+    fight_notify(other, win);
+    return win;
 }
 
 bool Orc::fight(std::shared_ptr<Bear> other) {
-    fight_notify(other, true);
-    return true;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->get_defense_power());
+    fight_notify(other, win);
+    return win;
 }
 
 void Orc::print() {
-    std::cout << "Орк '" << name << "' [" << x << "," << y << "]" << std::endl;
+    std::cout << "Орк '" << name << "' [" << x << "," << y << "] "
+              << "АТК:" << attack_power << " ЗЩТ:" << defense_power << std::endl;
 }
 
 void Orc::save(std::ostream &os) {

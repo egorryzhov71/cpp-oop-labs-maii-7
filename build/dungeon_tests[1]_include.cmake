@@ -1,0 +1,5 @@
+if(EXISTS "/workspaces/c++/cpp-oop-labs-maii-7/build/dungeon_tests[1]_tests.cmake")
+  include("/workspaces/c++/cpp-oop-labs-maii-7/build/dungeon_tests[1]_tests.cmake")
+else()
+  add_test(dungeon_tests_NOT_BUILT dungeon_tests_NOT_BUILT)
+endif()

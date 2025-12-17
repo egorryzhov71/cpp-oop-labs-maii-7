@@ -1,4 +1,4 @@
-#include "/workspaces/C++/balagur_project_filled/include/Bear.h"
+#include "/workspaces/c++/cpp-oop-labs-maii-7/include/Bear.h"
 #include <iostream>
 
 Bear::Bear(int x, int y, const std::string& name) 
@@ -11,22 +11,35 @@ bool Bear::accept(std::shared_ptr<NPC> attacker) {
 }
 
 bool Bear::fight(std::shared_ptr<Knight> other) {
-    std::cout << name << " (Bear) kills " << other->get_name() << " (Knight)" << std::endl;
-    return true;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->get_defense_power());
+    fight_notify(other, win);
+    return win;
 }
 
 bool Bear::fight(std::shared_ptr<Orc> other) {
-    std::cout << name << " (Bear) loses to " << other->get_name() << " (Orc)" << std::endl;
-    return false;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->get_defense_power());
+    fight_notify(other, win);
+    return win;
 }
 
 bool Bear::fight(std::shared_ptr<Bear> other) {
-    std::cout << name << " (Bear) ignores " << other->get_name() << " (Bear)" << std::endl;
-    return false;
+    roll_dice();
+    other->roll_dice();
+    
+    bool win = (attack_power > other->get_defense_power());
+    fight_notify(other, win);
+    return win;
 }
 
 void Bear::print() {
-    std::cout << "Bear " << name << " at (" << x << ", " << y << ")" << std::endl;
+    std::cout << "Медведь '" << name << "' [" << x << "," << y << "] "
+              << "АТК:" << attack_power << " ЗЩТ:" << defense_power << std::endl;
 }
 
 void Bear::save(std::ostream &os) {

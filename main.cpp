@@ -1,131 +1,235 @@
-#include "/workspaces/C++/balagur_project_filled/include/NPC.h"
-#include "/workspaces/C++/balagur_project_filled/include/NPCFactory.h"
-#include <iostream>
-#include <fstream>
-#include <random>
-#include <limits>
+#include "/workspaces/c++/cpp-oop-labs-maii-7/include/NPCFactory.h"
+#include "/workspaces/c++/cpp-oop-labs-maii-7/include/Observer.h"
+#include <sstream>
+#include <thread>
+#include <mutex>
+#include <chrono>
+#include <queue>
+#include <optional>
+#include <array>
+#include <cstdlib> 
+#include <ctime>    
+#include <atomic>
 
-void save(const set_t &npcs, const std::string &filename) {
-    std::ofstream fs(filename);
-    if (!fs) return;
-    fs << npcs.size() << std::endl;
-    for (auto &npc : npcs) npc->save(fs), fs << std::endl;
-    std::cout << "Сохранено " << npcs.size() << " NPC" << std::endl;
-}
+using namespace std::chrono_literals;
 
-set_t load(const std::string &filename, NPCFactory &factory) {
-    set_t result;
-    std::ifstream is(filename);
-    if (is) {
-        int count; is >> count;
-        for (int i = 0; i < count; ++i) {
-            auto npc = factory.load(is);
-            if (npc) result.insert(npc);
-        }
-        std::cout << "Загружено " << result.size() << " NPC" << std::endl;
+std::atomic<bool> game_running{true};
+
+struct FightEvent {
+    std::shared_ptr<NPC> attacker;
+    std::shared_ptr<NPC> defender;
+};
+
+class FightManager {
+private:
+    std::queue<FightEvent> events;
+    std::mutex mtx;
+    std::atomic<bool> running{true};
+    
+    FightManager() {}
+    
+public:
+    static FightManager& get() {
+        static FightManager instance;
+        return instance;
     }
-    return result;
-}
 
-void print_npcs(const set_t &npcs) {
-    std::cout << "\nСписок NPC (" << npcs.size() << "):" << std::endl;
-    for (auto &npc : npcs) npc->print();
-}
+    void add_event(FightEvent&& event) {
+        std::lock_guard<std::mutex> lck(mtx);
+        events.push(event);
+    }
+    
+    void stop() {
+        running = false;
+    }
 
-set_t fight(const set_t &npcs, size_t distance) {
-    set_t dead_list;
-    for (const auto &attacker : npcs) {
-        if (dead_list.find(attacker) != dead_list.end()) continue;
-        for (const auto &defender : npcs) {
-            if (attacker != defender && 
-                attacker->is_close(defender, distance) &&
-                dead_list.find(defender) == dead_list.end()) {
-                if (defender->accept(attacker)) dead_list.insert(defender);
+    void operator()() {
+        while (running && game_running) {
+            std::optional<FightEvent> event;
+            
+            {
+                std::lock_guard<std::mutex> lck(mtx);
+                if (!events.empty()) {
+                    event = events.front();  
+                    events.pop();
+                }
             }
+
+            if (event) {
+                if (event->attacker->is_alive() &&     
+                    event->defender->is_alive()) {      
+                    int kill_distance = event->attacker->get_kill_distance();
+                    if (event->attacker->is_close(event->defender, kill_distance)) {
+                        if (event->defender->accept(event->attacker)) {
+                            event->defender->must_die();
+                        }
+                    }
+                }
+            }
+            
+            std::this_thread::sleep_for(100ms);
         }
     }
-    return dead_list;
-}
-
-void clear_input() {
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-}
+};
 
 int main() {
-    set_t npcs;
-    NPCFactory factory;
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
     
-    int choice;
-    do {
-        std::cout << "\n=== ЭДИТОР ===\n";
-        std::cout << "1. Добавить NPC\n";
-        std::cout << "2. Показать NPC\n";
-        std::cout << "3. Сохранить\n";
-        std::cout << "4. Загрузить\n";
-        std::cout << "5. Бой\n";
-        std::cout << "6. Сгенерировать случайные NPC\n";
-        std::cout << "0. Выход\n";
-        std::cout << "Выберите: ";
-        std::cin >> choice;
-        clear_input();
-        
-        switch(choice) {
-            case 1: {
-                std::cout << "Тип (1-Рыцарь, 2-Орк, 3-Медведь): ";
-                int type, x, y;
-                std::string name;
-                std::cin >> type >> x >> y >> name;
-                if (auto npc = factory.create(static_cast<NPC::Type>(type), x, y, name))
-                    npcs.insert(npc);
-                else
-                    std::cout << "Ошибка создания NPC!" << std::endl;
-                break;
-            }
-            case 2: 
-                print_npcs(npcs); 
-                break;
-            case 3: 
-                save(npcs, "dungeon.txt"); 
-                break;
-            case 4: 
-                npcs = load("dungeon.txt", factory); 
-                break;
-            case 5: {
-                std::cout << "Дальность боя: ";
-                size_t d; 
-                std::cin >> d;
-                auto dead = fight(npcs, d);
-                for (auto &d : dead) npcs.erase(d);
-                std::cout << "Убито: " << dead.size() 
-                          << ", Осталось: " << npcs.size() << std::endl;
-                break;
-            }
-            case 6: {
-                std::cout << "Количество NPC для генерации: ";
-                int n; 
-                std::cin >> n;
-                std::uniform_int_distribution<> coord(0, 500), type(1, 3);
-                for (int i = 0; i < n; ++i) {
-                    if (auto npc = factory.create(
-                        static_cast<NPC::Type>(type(gen)), 
-                        coord(gen), 
-                        coord(gen)))
-                        npcs.insert(npc);
-                }
-                std::cout << "Сгенерировано " << n << " NPC" << std::endl;
-                break;
-            }
-            case 0:
-                std::cout << "Выход из программы..." << std::endl;
-                break;
-            default:
-                std::cout << "Неверный выбор!" << std::endl;
-                break;
+    set_t array; 
+    const int MAX_X{100};
+    const int MAX_Y{100};
+
+    std::cout << "Generating 50 NPCs..." << std::endl;
+    for (size_t i = 0; i < 50; ++i) {
+        NPC::Type type;
+        int rand_type = std::rand() % 3;
+        switch (rand_type) {
+            case 0: type = NPC::Type::Knight; break;
+            case 1: type = NPC::Type::Orc; break;
+            case 2: type = NPC::Type::Bear; break;
+            default: type = NPC::Type::Knight;
         }
-    } while (choice != 0);
+        
+        auto npc = NPCFactory::factory(type,
+                                       std::rand() % MAX_X,
+                                       std::rand() % MAX_Y);
+        if (npc) {
+            array.insert(npc);
+        }
+    }
+
+    std::cout << "\nStarting with " << array.size() << " NPCs:" << std::endl;
+    std::cout << "Knight: move=30, kill=10" << std::endl;
+    std::cout << "Orc: move=20, kill=10" << std::endl;
+    std::cout << "Bear: move=5, kill=10" << std::endl;
+    std::cout << "=================================" << std::endl;
+
+    auto& fight_manager = FightManager::get();
+    std::thread fight_thread(std::ref(fight_manager));
+
+   std::thread move_thread([&array, MAX_X, MAX_Y, &fight_manager]() {
+        while (game_running) {
+            for (const std::shared_ptr<NPC>& npc : array) {
+                if (npc->is_alive()) {
+
+                    npc->move(MAX_X, MAX_Y);
+                }
+            }
+
+            for (const std::shared_ptr<NPC>& npc : array) {
+                for (const std::shared_ptr<NPC>& other : array) {
+                    if ((other != npc) && 
+                        npc->is_alive() && 
+                        other->is_alive()) {
+                        int kill_distance = npc->get_kill_distance();
+                        if (npc->is_close(other, kill_distance)) {
+                            fight_manager.add_event({npc, other});
+                        }
+                    }
+                }
+            }
+            std::this_thread::sleep_for(100ms); 
+        }
+    });
+
+    const int grid{20}, step_x{MAX_X / grid}, step_y{MAX_Y / grid};
+    std::array<char, grid * grid> fields{0};
     
+    auto start_time = std::chrono::steady_clock::now();
+    int seconds_passed = 0;
+    
+    while (game_running) {
+        auto now = std::chrono::steady_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - start_time);
+        seconds_passed = static_cast<int>(elapsed.count());
+        
+        if (seconds_passed >= 30) {
+            game_running = false;
+            break;
+        }
+        
+        fields.fill(0);
+        
+        for (const std::shared_ptr<NPC>& npc : array) {
+            const auto [x, y] = npc->position();
+            int i = x / step_x;
+            int j = y / step_y;
+
+            if (i >= 0 && i < grid && j >= 0 && j < grid) {
+                if (npc->is_alive()) {
+                    switch (npc->get_type()) {
+                        case NPC::Type::Knight:
+                            fields[i + grid * j] = 'K';
+                            break;
+                        case NPC::Type::Orc:
+                            fields[i + grid * j] = 'O';
+                            break;
+                        case NPC::Type::Bear:
+                            fields[i + grid * j] = 'B';
+                            break;
+                        default:
+                            break;
+                    }
+                } else {
+                    fields[i + grid * j] = '.';
+                }
+            }
+        }
+        
+        system("clear");
+
+        std::cout << "=== NPC Simulation ===" << std::endl;
+        std::cout << "Time: " << seconds_passed << "/30 seconds" << std::endl;
+        std::cout << "K - Knight, O - Orc, B - Bear, . - Dead" << std::endl << std::endl;
+        
+        for (int j = 0; j < grid; ++j) {
+            for (int i = 0; i < grid; ++i) {
+                char c = fields[i + j * grid];
+                if (c != 0) {
+                    std::cout << "[" << c << "]";
+                } else {
+                    std::cout << "[ ]";
+                }
+            }
+            std::cout << std::endl;
+        }
+        
+        int alive_count = 0;
+        for (const auto& npc : array) {
+            if (npc->is_alive()) alive_count++;
+        }
+        std::cout << "\nAlive NPCs: " << alive_count << "/" << array.size() << std::endl;
+        
+        std::this_thread::sleep_for(1s);
+    }
+
+    fight_manager.stop();
+    
+    if (move_thread.joinable()) move_thread.join();
+    if (fight_thread.joinable()) fight_thread.join();
+
+    std::cout << "\n=== GAME OVER ===" << std::endl;
+    std::cout << "Simulation stopped after 30 seconds" << std::endl;
+    std::cout << "\n=== SURVIVORS ===" << std::endl;
+    
+    int survivor_count = 0;
+    for (const auto& npc : array) {
+        if (npc->is_alive()) {
+            survivor_count++;
+            npc->print();
+        }
+    }
+    
+    if (survivor_count == 0) {
+        std::cout << "No survivors..." << std::endl;
+    } else {
+        std::cout << "\nTotal survivors: " << survivor_count << std::endl;
+    }
+    
+    std::cout << "\n=== STATISTICS ===" << std::endl;
+    std::cout << "Initial NPCs: " << array.size() << std::endl;
+    std::cout << "Survivors: " << survivor_count << std::endl;
+    std::cout << "Killed: " << array.size() - survivor_count << std::endl;
+
     return 0;
 }

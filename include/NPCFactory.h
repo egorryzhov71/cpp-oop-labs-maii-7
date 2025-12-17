@@ -8,10 +8,13 @@
 #include <random>
 #include <set>
 #include <vector>
+#include <fstream>
+#include <iostream>
+#include <cstring>
 
 class NPCFactory {
-    std::shared_ptr<ConsoleObserver> console_observer;
-    std::shared_ptr<FileObserver> file_observer;
+    std::shared_ptr<IFightObserver> console_observer;
+    std::shared_ptr<IFightObserver> file_observer;
     std::set<std::string> used_names;
     
     std::string generate_name() {
@@ -31,12 +34,11 @@ class NPCFactory {
     
 public:
     NPCFactory() {
-        console_observer = std::make_shared<ConsoleObserver>();
+        console_observer = TextObserver::get(); 
         file_observer = std::make_shared<FileObserver>();
     }
-    
     std::shared_ptr<NPC> create(NPC::Type type, int x, int y, const std::string& name = "") {
-        if (x < 0 || x > 500 || y < 0 || y > 500) return nullptr;
+        if (x < 0 || x > 100 || y < 0 || y > 100) return nullptr;
         
         std::string npc_name = name.empty() ? generate_unique_name() : name;
         if (used_names.find(npc_name) != used_names.end()) return nullptr;
@@ -72,4 +74,44 @@ public:
         npc->subscribe(file_observer);
         return npc;
     }
+    
+    static std::shared_ptr<NPC> factory(std::istream &is) {
+        static NPCFactory instance;
+        return instance.load(is);
+    }
+    
+    static std::shared_ptr<NPC> factory(NPC::Type type, int x, int y, const std::string& name = "") {
+        static NPCFactory instance;
+        return instance.create(type, x, y, name);
+    }
+    
+    static void save(const std::set<std::shared_ptr<NPC>>& array, const std::string &filename) {
+        std::ofstream fs(filename);
+        fs << array.size() << std::endl;
+        for (auto &n : array) {
+            n->save(fs);
+        }
+        fs.flush();
+        fs.close();
+    }
+    
+    static std::set<std::shared_ptr<NPC>> load_set(const std::string &filename) {
+        std::set<std::shared_ptr<NPC>> result;
+        std::ifstream is(filename);
+        if (is.good() && is.is_open()) {
+            int count;
+            is >> count;
+            for (int i = 0; i < count; ++i) {
+                if (auto npc = factory(is)) {
+                    result.insert(npc);
+                }
+            }
+            is.close();
+        } else {
+            std::cerr << "Error: " << std::strerror(errno) << std::endl;
+        }
+        return result;
+    }
 };
+
+using set_t = std::set<std::shared_ptr<NPC>>;

@@ -1,43 +1,19 @@
 #pragma once
 #include "NPC.h"
-#include <fstream>
-#include <iostream>
-#include <memory>
 
-class IFightObserver {
+class Orc : public NPC {
 public:
-    virtual ~IFightObserver() = default;
-    virtual void on_fight(const std::shared_ptr<NPC> attacker, 
-                         const std::shared_ptr<NPC> defender, 
-                         bool win) = 0;
-};
-
-class ConsoleObserver : public IFightObserver {
-public:
-    void on_fight(const std::shared_ptr<NPC> attacker, 
-                 const std::shared_ptr<NPC> defender, 
-                 bool win) override {
-        if (win) {
-            std::cout << attacker->get_name() << " убил " << defender->get_name() << std::endl;
-        }
-    }
-};
-
-class FileObserver : public IFightObserver {
-    std::ofstream log_file;
-public:
-    FileObserver() { 
-        log_file.open("log.txt", std::ios::app); 
-    }
-    ~FileObserver() { 
-        if (log_file.is_open()) log_file.close(); 
-    }
+    Orc(int x, int y, const std::string& name);
+    Orc(std::istream &is);
     
-    void on_fight(const std::shared_ptr<NPC> attacker, 
-                 const std::shared_ptr<NPC> defender, 
-                 bool win) override {
-        if (win && log_file.is_open()) {
-            log_file << attacker->get_name() << " убил " << defender->get_name() << std::endl;
-        }
-    }
+    bool accept(std::shared_ptr<NPC> attacker) override;
+    bool fight(std::shared_ptr<Knight> other) override;
+    bool fight(std::shared_ptr<Orc> other) override;
+    bool fight(std::shared_ptr<Bear> other) override;
+    
+    void print() override;
+    void save(std::ostream &os) override;
+
+    int get_move_distance() const override { return 20; }
+    int get_kill_distance() const override { return 10; }
 };

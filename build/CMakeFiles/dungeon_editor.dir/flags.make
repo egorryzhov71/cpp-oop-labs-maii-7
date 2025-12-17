@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/workspaces/C++/LABA7/include
+CXX_INCLUDES = -I/workspaces/c++/cpp-oop-labs-maii-7/include
 
 CXX_FLAGS = -std=gnu++17
 

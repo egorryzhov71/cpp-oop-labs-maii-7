@@ -15,4 +15,7 @@ public:
     
     void print() override;
     void save(std::ostream &os) override; 
+
+    int get_move_distance() const override { return 5; }
+    int get_kill_distance() const override { return 10; }
 };

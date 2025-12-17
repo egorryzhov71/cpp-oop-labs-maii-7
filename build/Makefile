@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspaces/C++/LABA7
+CMAKE_SOURCE_DIR = /workspaces/c++/cpp-oop-labs-maii-7
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/C++/LABA7/build
+CMAKE_BINARY_DIR = /workspaces/c++/cpp-oop-labs-maii-7/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/C++/LABA7/build/CMakeFiles /workspaces/C++/LABA7/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles /workspaces/c++/cpp-oop-labs-maii-7/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/C++/LABA7/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,17 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named dungeon_threaded
+# Target rules for targets named dungeon_editor
 
 # Build rule for target.
-dungeon_threaded: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dungeon_threaded
-.PHONY : dungeon_threaded
+dungeon_editor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dungeon_editor
+.PHONY : dungeon_editor
 
 # fast build rule for target.
-dungeon_threaded/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/build
-.PHONY : dungeon_threaded/fast
+dungeon_editor/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/build
+.PHONY : dungeon_editor/fast
 
 #=============================================================================
 # Target rules for targets named dungeon_tests
@@ -147,7 +147,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -155,7 +155,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -163,7 +163,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 src/Bear.o: src/Bear.cpp.o
@@ -171,7 +171,7 @@ src/Bear.o: src/Bear.cpp.o
 
 # target to build an object file
 src/Bear.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Bear.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Bear.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o
 .PHONY : src/Bear.cpp.o
 
@@ -180,7 +180,7 @@ src/Bear.i: src/Bear.cpp.i
 
 # target to preprocess a source file
 src/Bear.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Bear.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Bear.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Bear.cpp.i
 .PHONY : src/Bear.cpp.i
 
@@ -189,7 +189,7 @@ src/Bear.s: src/Bear.cpp.s
 
 # target to generate assembly for a file
 src/Bear.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Bear.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Bear.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Bear.cpp.s
 .PHONY : src/Bear.cpp.s
 
@@ -198,7 +198,7 @@ src/Knight.o: src/Knight.cpp.o
 
 # target to build an object file
 src/Knight.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Knight.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Knight.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o
 .PHONY : src/Knight.cpp.o
 
@@ -207,7 +207,7 @@ src/Knight.i: src/Knight.cpp.i
 
 # target to preprocess a source file
 src/Knight.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Knight.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Knight.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Knight.cpp.i
 .PHONY : src/Knight.cpp.i
 
@@ -216,7 +216,7 @@ src/Knight.s: src/Knight.cpp.s
 
 # target to generate assembly for a file
 src/Knight.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Knight.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Knight.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Knight.cpp.s
 .PHONY : src/Knight.cpp.s
 
@@ -225,7 +225,7 @@ src/NPC.o: src/NPC.cpp.o
 
 # target to build an object file
 src/NPC.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/NPC.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/NPC.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o
 .PHONY : src/NPC.cpp.o
 
@@ -234,7 +234,7 @@ src/NPC.i: src/NPC.cpp.i
 
 # target to preprocess a source file
 src/NPC.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/NPC.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/NPC.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/NPC.cpp.i
 .PHONY : src/NPC.cpp.i
 
@@ -243,70 +243,16 @@ src/NPC.s: src/NPC.cpp.s
 
 # target to generate assembly for a file
 src/NPC.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/NPC.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/NPC.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/NPC.cpp.s
 .PHONY : src/NPC.cpp.s
-
-src/NPCFactory.o: src/NPCFactory.cpp.o
-.PHONY : src/NPCFactory.o
-
-# target to build an object file
-src/NPCFactory.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/NPCFactory.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o
-.PHONY : src/NPCFactory.cpp.o
-
-src/NPCFactory.i: src/NPCFactory.cpp.i
-.PHONY : src/NPCFactory.i
-
-# target to preprocess a source file
-src/NPCFactory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/NPCFactory.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.i
-.PHONY : src/NPCFactory.cpp.i
-
-src/NPCFactory.s: src/NPCFactory.cpp.s
-.PHONY : src/NPCFactory.s
-
-# target to generate assembly for a file
-src/NPCFactory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/NPCFactory.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.s
-.PHONY : src/NPCFactory.cpp.s
-
-src/Observer.o: src/Observer.cpp.o
-.PHONY : src/Observer.o
-
-# target to build an object file
-src/Observer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Observer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o
-.PHONY : src/Observer.cpp.o
-
-src/Observer.i: src/Observer.cpp.i
-.PHONY : src/Observer.i
-
-# target to preprocess a source file
-src/Observer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Observer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Observer.cpp.i
-.PHONY : src/Observer.cpp.i
-
-src/Observer.s: src/Observer.cpp.s
-.PHONY : src/Observer.s
-
-# target to generate assembly for a file
-src/Observer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Observer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Observer.cpp.s
-.PHONY : src/Observer.cpp.s
 
 src/Orc.o: src/Orc.cpp.o
 .PHONY : src/Orc.o
 
 # target to build an object file
 src/Orc.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Orc.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Orc.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o
 .PHONY : src/Orc.cpp.o
 
@@ -315,7 +261,7 @@ src/Orc.i: src/Orc.cpp.i
 
 # target to preprocess a source file
 src/Orc.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Orc.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Orc.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Orc.cpp.i
 .PHONY : src/Orc.cpp.i
 
@@ -324,36 +270,9 @@ src/Orc.s: src/Orc.cpp.s
 
 # target to generate assembly for a file
 src/Orc.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/Orc.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_editor.dir/build.make CMakeFiles/dungeon_editor.dir/src/Orc.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/Orc.cpp.s
 .PHONY : src/Orc.cpp.s
-
-src/ThreadedGame.o: src/ThreadedGame.cpp.o
-.PHONY : src/ThreadedGame.o
-
-# target to build an object file
-src/ThreadedGame.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/ThreadedGame.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o
-.PHONY : src/ThreadedGame.cpp.o
-
-src/ThreadedGame.i: src/ThreadedGame.cpp.i
-.PHONY : src/ThreadedGame.i
-
-# target to preprocess a source file
-src/ThreadedGame.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/ThreadedGame.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.i
-.PHONY : src/ThreadedGame.cpp.i
-
-src/ThreadedGame.s: src/ThreadedGame.cpp.s
-.PHONY : src/ThreadedGame.s
-
-# target to generate assembly for a file
-src/ThreadedGame.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_threaded.dir/build.make CMakeFiles/dungeon_threaded.dir/src/ThreadedGame.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeon_tests.dir/build.make CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.s
-.PHONY : src/ThreadedGame.cpp.s
 
 test/tests.o: test/tests.cpp.o
 .PHONY : test/tests.o
@@ -387,8 +306,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... dungeon_editor"
 	@echo "... dungeon_tests"
-	@echo "... dungeon_threaded"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -401,18 +320,9 @@ help:
 	@echo "... src/NPC.o"
 	@echo "... src/NPC.i"
 	@echo "... src/NPC.s"
-	@echo "... src/NPCFactory.o"
-	@echo "... src/NPCFactory.i"
-	@echo "... src/NPCFactory.s"
-	@echo "... src/Observer.o"
-	@echo "... src/Observer.i"
-	@echo "... src/Observer.s"
 	@echo "... src/Orc.o"
 	@echo "... src/Orc.i"
 	@echo "... src/Orc.s"
-	@echo "... src/ThreadedGame.o"
-	@echo "... src/ThreadedGame.i"
-	@echo "... src/ThreadedGame.s"
 	@echo "... test/tests.o"
 	@echo "... test/tests.i"
 	@echo "... test/tests.s"

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspaces/C++/LABA7
+CMAKE_SOURCE_DIR = /workspaces/c++/cpp-oop-labs-maii-7
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/C++/LABA7/build
+CMAKE_BINARY_DIR = /workspaces/c++/cpp-oop-labs-maii-7/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dungeon_tests.dir/depend.make
@@ -72,144 +72,97 @@ include CMakeFiles/dungeon_tests.dir/flags.make
 CMakeFiles/dungeon_tests.dir/test/tests.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
 CMakeFiles/dungeon_tests.dir/test/tests.cpp.o: ../test/tests.cpp
 CMakeFiles/dungeon_tests.dir/test/tests.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dungeon_tests.dir/test/tests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/test/tests.cpp.o -MF CMakeFiles/dungeon_tests.dir/test/tests.cpp.o.d -o CMakeFiles/dungeon_tests.dir/test/tests.cpp.o -c /workspaces/C++/LABA7/test/tests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dungeon_tests.dir/test/tests.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/test/tests.cpp.o -MF CMakeFiles/dungeon_tests.dir/test/tests.cpp.o.d -o CMakeFiles/dungeon_tests.dir/test/tests.cpp.o -c /workspaces/c++/cpp-oop-labs-maii-7/test/tests.cpp
 
 CMakeFiles/dungeon_tests.dir/test/tests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/test/tests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/C++/LABA7/test/tests.cpp > CMakeFiles/dungeon_tests.dir/test/tests.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/c++/cpp-oop-labs-maii-7/test/tests.cpp > CMakeFiles/dungeon_tests.dir/test/tests.cpp.i
 
 CMakeFiles/dungeon_tests.dir/test/tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/test/tests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/C++/LABA7/test/tests.cpp -o CMakeFiles/dungeon_tests.dir/test/tests.cpp.s
-
-CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
-CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o: ../src/NPC.cpp
-CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o -c /workspaces/C++/LABA7/src/NPC.cpp
-
-CMakeFiles/dungeon_tests.dir/src/NPC.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/NPC.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/C++/LABA7/src/NPC.cpp > CMakeFiles/dungeon_tests.dir/src/NPC.cpp.i
-
-CMakeFiles/dungeon_tests.dir/src/NPC.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/NPC.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/C++/LABA7/src/NPC.cpp -o CMakeFiles/dungeon_tests.dir/src/NPC.cpp.s
-
-CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
-CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o: ../src/Orc.cpp
-CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o -c /workspaces/C++/LABA7/src/Orc.cpp
-
-CMakeFiles/dungeon_tests.dir/src/Orc.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/Orc.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/C++/LABA7/src/Orc.cpp > CMakeFiles/dungeon_tests.dir/src/Orc.cpp.i
-
-CMakeFiles/dungeon_tests.dir/src/Orc.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/Orc.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/C++/LABA7/src/Orc.cpp -o CMakeFiles/dungeon_tests.dir/src/Orc.cpp.s
-
-CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
-CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o: ../src/Knight.cpp
-CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o -c /workspaces/C++/LABA7/src/Knight.cpp
-
-CMakeFiles/dungeon_tests.dir/src/Knight.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/Knight.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/C++/LABA7/src/Knight.cpp > CMakeFiles/dungeon_tests.dir/src/Knight.cpp.i
-
-CMakeFiles/dungeon_tests.dir/src/Knight.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/Knight.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/C++/LABA7/src/Knight.cpp -o CMakeFiles/dungeon_tests.dir/src/Knight.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/c++/cpp-oop-labs-maii-7/test/tests.cpp -o CMakeFiles/dungeon_tests.dir/test/tests.cpp.s
 
 CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
 CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o: ../src/Bear.cpp
 CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o -c /workspaces/C++/LABA7/src/Bear.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o -c /workspaces/c++/cpp-oop-labs-maii-7/src/Bear.cpp
 
 CMakeFiles/dungeon_tests.dir/src/Bear.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/Bear.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/C++/LABA7/src/Bear.cpp > CMakeFiles/dungeon_tests.dir/src/Bear.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/c++/cpp-oop-labs-maii-7/src/Bear.cpp > CMakeFiles/dungeon_tests.dir/src/Bear.cpp.i
 
 CMakeFiles/dungeon_tests.dir/src/Bear.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/Bear.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/C++/LABA7/src/Bear.cpp -o CMakeFiles/dungeon_tests.dir/src/Bear.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/c++/cpp-oop-labs-maii-7/src/Bear.cpp -o CMakeFiles/dungeon_tests.dir/src/Bear.cpp.s
 
-CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
-CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o: ../src/Observer.cpp
-CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o -c /workspaces/C++/LABA7/src/Observer.cpp
+CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
+CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o: ../src/Knight.cpp
+CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o -c /workspaces/c++/cpp-oop-labs-maii-7/src/Knight.cpp
 
-CMakeFiles/dungeon_tests.dir/src/Observer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/Observer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/C++/LABA7/src/Observer.cpp > CMakeFiles/dungeon_tests.dir/src/Observer.cpp.i
+CMakeFiles/dungeon_tests.dir/src/Knight.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/Knight.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/c++/cpp-oop-labs-maii-7/src/Knight.cpp > CMakeFiles/dungeon_tests.dir/src/Knight.cpp.i
 
-CMakeFiles/dungeon_tests.dir/src/Observer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/Observer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/C++/LABA7/src/Observer.cpp -o CMakeFiles/dungeon_tests.dir/src/Observer.cpp.s
+CMakeFiles/dungeon_tests.dir/src/Knight.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/Knight.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/c++/cpp-oop-labs-maii-7/src/Knight.cpp -o CMakeFiles/dungeon_tests.dir/src/Knight.cpp.s
 
-CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
-CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o: ../src/NPCFactory.cpp
-CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o -c /workspaces/C++/LABA7/src/NPCFactory.cpp
+CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
+CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o: ../src/NPC.cpp
+CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o -c /workspaces/c++/cpp-oop-labs-maii-7/src/NPC.cpp
 
-CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/C++/LABA7/src/NPCFactory.cpp > CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.i
+CMakeFiles/dungeon_tests.dir/src/NPC.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/NPC.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/c++/cpp-oop-labs-maii-7/src/NPC.cpp > CMakeFiles/dungeon_tests.dir/src/NPC.cpp.i
 
-CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/C++/LABA7/src/NPCFactory.cpp -o CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.s
+CMakeFiles/dungeon_tests.dir/src/NPC.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/NPC.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/c++/cpp-oop-labs-maii-7/src/NPC.cpp -o CMakeFiles/dungeon_tests.dir/src/NPC.cpp.s
 
-CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
-CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o: ../src/ThreadedGame.cpp
-CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o -c /workspaces/C++/LABA7/src/ThreadedGame.cpp
+CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o: CMakeFiles/dungeon_tests.dir/flags.make
+CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o: ../src/Orc.cpp
+CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o: CMakeFiles/dungeon_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o -MF CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o.d -o CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o -c /workspaces/c++/cpp-oop-labs-maii-7/src/Orc.cpp
 
-CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/C++/LABA7/src/ThreadedGame.cpp > CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.i
+CMakeFiles/dungeon_tests.dir/src/Orc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dungeon_tests.dir/src/Orc.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/c++/cpp-oop-labs-maii-7/src/Orc.cpp > CMakeFiles/dungeon_tests.dir/src/Orc.cpp.i
 
-CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/C++/LABA7/src/ThreadedGame.cpp -o CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.s
+CMakeFiles/dungeon_tests.dir/src/Orc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dungeon_tests.dir/src/Orc.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/c++/cpp-oop-labs-maii-7/src/Orc.cpp -o CMakeFiles/dungeon_tests.dir/src/Orc.cpp.s
 
 # Object files for target dungeon_tests
 dungeon_tests_OBJECTS = \
 "CMakeFiles/dungeon_tests.dir/test/tests.cpp.o" \
-"CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o" \
-"CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o" \
-"CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o" \
 "CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o" \
-"CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o" \
-"CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o" \
-"CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o"
+"CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o" \
+"CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o" \
+"CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o"
 
 # External object files for target dungeon_tests
 dungeon_tests_EXTERNAL_OBJECTS =
 
 dungeon_tests: CMakeFiles/dungeon_tests.dir/test/tests.cpp.o
+dungeon_tests: CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o
+dungeon_tests: CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o
 dungeon_tests: CMakeFiles/dungeon_tests.dir/src/NPC.cpp.o
 dungeon_tests: CMakeFiles/dungeon_tests.dir/src/Orc.cpp.o
-dungeon_tests: CMakeFiles/dungeon_tests.dir/src/Knight.cpp.o
-dungeon_tests: CMakeFiles/dungeon_tests.dir/src/Bear.cpp.o
-dungeon_tests: CMakeFiles/dungeon_tests.dir/src/Observer.cpp.o
-dungeon_tests: CMakeFiles/dungeon_tests.dir/src/NPCFactory.cpp.o
-dungeon_tests: CMakeFiles/dungeon_tests.dir/src/ThreadedGame.cpp.o
 dungeon_tests: CMakeFiles/dungeon_tests.dir/build.make
 dungeon_tests: /usr/lib/x86_64-linux-gnu/libgtest.a
 dungeon_tests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 dungeon_tests: /usr/lib/x86_64-linux-gnu/libgtest.a
 dungeon_tests: CMakeFiles/dungeon_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspaces/C++/LABA7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable dungeon_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable dungeon_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dungeon_tests.dir/link.txt --verbose=$(VERBOSE)
+	/usr/bin/cmake -D TEST_TARGET=dungeon_tests -D TEST_EXECUTABLE=/workspaces/c++/cpp-oop-labs-maii-7/build/dungeon_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/workspaces/c++/cpp-oop-labs-maii-7/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=dungeon_tests_TESTS -D CTEST_FILE=/workspaces/c++/cpp-oop-labs-maii-7/build/dungeon_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /usr/share/cmake-3.22/Modules/GoogleTestAddTests.cmake
 
 # Rule to build all files generated by this target.
 CMakeFiles/dungeon_tests.dir/build: dungeon_tests
@@ -220,6 +173,6 @@ CMakeFiles/dungeon_tests.dir/clean:
 .PHONY : CMakeFiles/dungeon_tests.dir/clean
 
 CMakeFiles/dungeon_tests.dir/depend:
-	cd /workspaces/C++/LABA7/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /workspaces/C++/LABA7 /workspaces/C++/LABA7 /workspaces/C++/LABA7/build /workspaces/C++/LABA7/build /workspaces/C++/LABA7/build/CMakeFiles/dungeon_tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /workspaces/c++/cpp-oop-labs-maii-7/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /workspaces/c++/cpp-oop-labs-maii-7 /workspaces/c++/cpp-oop-labs-maii-7 /workspaces/c++/cpp-oop-labs-maii-7/build /workspaces/c++/cpp-oop-labs-maii-7/build /workspaces/c++/cpp-oop-labs-maii-7/build/CMakeFiles/dungeon_tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dungeon_tests.dir/depend
 
