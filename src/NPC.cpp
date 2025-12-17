@@ -39,7 +39,6 @@ std::pair<int, int> NPC::position() const
     return {x, y};
 }
 
-// НОВЫЙ МЕТОД ДВИЖЕНИЯ с учетом таблицы
 void NPC::move(int max_x, int max_y) {
     std::lock_guard<std::mutex> lck(mtx);
     

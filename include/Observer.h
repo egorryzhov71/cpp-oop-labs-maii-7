@@ -19,7 +19,7 @@ public:
                  const std::shared_ptr<NPC> defender, 
                  bool win) override {
         if (win) {
-            static std::mutex print_mutex;  // Встроенный static
+            static std::mutex print_mutex; 
             std::lock_guard<std::mutex> lck(print_mutex);
             std::cout << std::endl << "Murder --------" << std::endl;
             attacker->print();

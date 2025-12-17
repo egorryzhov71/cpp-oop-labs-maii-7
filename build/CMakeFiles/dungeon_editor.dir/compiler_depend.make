@@ -283,7 +283,8 @@ CMakeFiles/dungeon_editor.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/stl_heap.h \
   /usr/include/c++/11/bits/stl_queue.h \
   /usr/include/c++/11/optional \
-  /usr/include/c++/11/bits/enable_special_members.h
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/atomic
 
 CMakeFiles/dungeon_editor.dir/src/Bear.cpp.o: ../src/Bear.cpp \
   /usr/include/stdc-predef.h \
@@ -1349,6 +1350,8 @@ CMakeFiles/dungeon_editor.dir/src/Orc.cpp.o: ../src/Orc.cpp \
 ../src/Knight.cpp:
 
 ../src/Bear.cpp:
+
+/usr/include/c++/11/atomic:
 
 /usr/include/c++/11/optional:
 
